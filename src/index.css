@@ -1,13 +1,110 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Roboto Condensed';
+    src: url('./fonts/RobotoCondensed-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Roboto Condensed';
+    src: url('./fonts/RobotoCondensed-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer utilities {
+  .clip-btn {
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px );
+  }
+
+  .placeholder-fsz::placeholder{
+    font-size: 14px;
+  }
+
+  a:focus, button:focus {
+    outline: none;
+    @apply ring;
+  }
+
 }
+
+.text-header {
+  @apply font-bold text-header;
+}
+
+.text-p {
+  @apply font-normal text-sm;
+}
+
+.text-rnd-card {
+  @apply font-bold text-rnd-card text-white leading-7;
+}
+
+.text-ch-name {
+  @apply font-normal text-header text-white leading-7;
+}
+
+.text-header-s {
+  @apply font-bold text-header-s leading-5;
+}
+
+.text-comix-name {
+  @apply font-bold text-comix-name leading-4;
+}
+
+
+.bg-main {
+  @apply bg-red-800
+}
+
+.bg-comix-banner {
+  background: url("./img/Avengers.png") 10% 50% no-repeat, url("./img/Avengers logo.png") 90% 50% no-repeat, rgb(17, 24, 39);
+}
+
+.text-color-main {
+  @apply text-red-800
+}
+
+.btn-main {
+  @apply h-38p w-101p  flex justify-center items-center text-white font-normal text-sm bg-btn-red bg-center bg-cover
+}
+
+.btn-gray {
+  @apply h-38p w-101p  flex justify-center items-center text-white font-normal text-sm bg-btn-gray bg-center bg-cover
+}
+
+.line-clamp {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.single-clamp {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+
+/*body {*/
+/*  margin: 0;*/
+/*  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',*/
+/*    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',*/
+/*    sans-serif;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*}*/
+
+/*code {*/
+/*  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',*/
+/*    monospace;*/
+/*}*/

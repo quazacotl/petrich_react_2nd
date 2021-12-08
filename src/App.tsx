@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import Header from "./components/Header";
+import RandomCharacter from "./components/RandomCharacter";
+import Characters from "./components/Characters";
+import ChosenCharacter from "./components/ChosenCharacter";
+import FindForm from "./components/FindForm";
+import ComixBanner from "./components/ComixBanner";
+import Comixes from "./components/Comixes";
+import ComixPage from "./components/ComixPage";
+import CharacterPage from "./components/CharacterPage";
+import ErrorBoundary from "./components/ErrorBoundary";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+interface AppState {
+    currentId: number
+}
+
+class App  extends Component<any, AppState>{
+    state = {
+        currentId: NaN
+    }
+
+    setId = (id: number): void => {
+        this.setState({currentId: id})
+    }
+
+
+    render() {
+
+        return (
+            <div className="w-[1100px] mx-auto">
+                <Header/>
+                <RandomCharacter/>
+                <div className={'flex mt-12'}>
+                    <Characters setId={this.setId}/>
+                    <div className="flex flex-col ml-25p w-[425px]">
+                        <ErrorBoundary>
+                            <ChosenCharacter id={this.state.currentId}/>
+                        </ErrorBoundary>
+                        <FindForm/>
+                    </div>
+                </div>
+                {/*<ComixBanner/>*/}
+                {/*<Comixes/>*/}
+                {/*<ComixPage/>*/}
+                {/*<CharacterPage/>*/}
+            </div>
+        );
+    }
+
 }
 
 export default App;
