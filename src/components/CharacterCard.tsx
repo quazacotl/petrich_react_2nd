@@ -10,8 +10,6 @@ const CharacterCard = (props: CharacterCardProps) => {
     const char = props.char
     const thumbNailClasses = char.thumbnail.endsWith('available.jpg')  ? 'w-full h-full' : 'w-full h-full object-cover'
 
-
-
     return (
         <div
             tabIndex={0}

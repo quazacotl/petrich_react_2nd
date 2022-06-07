@@ -1,16 +1,16 @@
-import React from 'react'
+import {Link, NavLink} from 'react-router-dom'
 
 const Header = () => {
     return (
         <nav className={'py-7 flex justify-between items-center font-bold'}>
-            <a className={'text-3xl'} href="/">
+            <Link className={'text-3xl'} to='/'>
                 <span className={'text-color-main mr-1'}>Marvel</span>
                 information portal
-            </a>
+            </Link>
             <div className={'text-2xl'}>
-                <a className={'text-color-main'} href="/characters">Characters</a>
+                <NavLink end style={({isActive}) => ({'color': isActive ? 'rgb(153, 27, 27)' : 'inherit'})} to='/' className={'text-black'}>Characters</NavLink>
                 <span className={'mx-1'}>/</span>
-                <a className={'text-black'} href="/comics">Comics</a>
+                <NavLink style={({isActive}) => ({'color': isActive ? 'rgb(153, 27, 27)' : 'inherit'})} to='/comics' className={'text-black'}>Comics</NavLink>
             </div>
         </nav>
     )

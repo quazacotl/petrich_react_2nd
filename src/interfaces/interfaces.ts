@@ -63,3 +63,16 @@ interface IUrl {
     url: string
 }
 
+export interface Comix {
+    id: number,
+    title: string,
+    price: string,
+    thumbnail: string
+}
+
+export interface SingleComic extends Comix {
+    description: string
+    pageCount: string
+    language: string
+}
+

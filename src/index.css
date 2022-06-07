@@ -78,6 +78,10 @@
   @apply h-38p w-101p  flex justify-center items-center text-white font-normal text-sm bg-btn-gray bg-center bg-cover
 }
 
+#root {
+  min-height: 100vh;
+}
+
 .line-clamp {
   overflow: hidden;
   text-overflow: ellipsis;
